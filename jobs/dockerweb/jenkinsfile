@@ -11,6 +11,16 @@ pipeline {
         name_final = "${name_container}${tag_imagen}${puerto_imagen}"        
     }
     stages {
+           stage("Conexion a Servidor Docker"){
+
+            steps {
+                script {			
+                 sh ''' cd /home/ubuntu
+                        ssh -i "mycentos test.pem" ubuntu@ec2-3-143-147-252.us-east-2.compute.amazonaws.com
+                 '''
+              }
+            }
+          }
           stage('stop/rm') {
 
             when {
