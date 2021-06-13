@@ -17,6 +17,7 @@ pipeline {
                 script {			
                  sh ''' cd /home/ubuntu
                         ssh -i "mycentostest2.pem" ubuntu@ec2-3-143-147-252.us-east-2.compute.amazonaws.com
+                        cd jenkins
                  '''
               }
             }
