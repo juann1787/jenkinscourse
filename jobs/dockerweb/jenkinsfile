@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {			
                  sh ''' cd /home/ubuntu
-                        ssh -i "mycentostest2.pem" ubuntu@ec2-3-143-147-252.us-east-2.compute.amazonaws.com
+                        ssh -tti "mycentostest2.pem" ubuntu@ec2-3-143-147-252.us-east-2.compute.amazonaws.com
                  '''
               }
             }
@@ -24,7 +24,11 @@ pipeline {
           stage("carpeta"){
             steps {
               dir('jenkins') {
-                  sh'ls -la'
+                  sh ''' 
+                         ls -la
+                         pwd
+                         echo "hola"
+                    '''
               }
             }
           }
