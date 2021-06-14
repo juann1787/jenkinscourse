@@ -11,6 +11,19 @@ pipeline {
         name_final = "${name_container}${tag_imagen}${puerto_imagen}"        
     }
     stages {
+          stage('info'){
+            steps {
+              script{
+                sh '''
+                  pwd
+                  echo ${USER}
+                  docker ps | echo
+                  whoami
+                  groups ${USER}
+                '''
+              }
+            }
+          }
           stage('stop/rm') {
 
             when {
