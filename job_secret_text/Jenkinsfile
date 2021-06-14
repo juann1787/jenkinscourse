@@ -17,7 +17,7 @@ pipeline {
     stages {
         stage ('Creando Usuario') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'mysql', passwordVariable: 'PASSWD_DB', usernameVariable: 'USER_DB')]) {
+                withCredentials([usernamePassword(credentialsId: 'mysql-rds', passwordVariable: 'PASSWD_DB', usernameVariable: 'USER_DB')]) {
                         script {
                         def tipousuario="${TIPOUSUARIO}"
                         def browsers ="${DATABASE}".split(",")
