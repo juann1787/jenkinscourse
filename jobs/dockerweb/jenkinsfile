@@ -11,27 +11,6 @@ pipeline {
         name_final = "${name_container}${tag_imagen}${puerto_imagen}"        
     }
     stages {
-           stage("Conexion a Servidor Docker"){
-
-            steps {
-                script {			
-                 sh ''' cd /home/ubuntu
-                        ssh -tti "mycentostest2.pem" ubuntu@ec2-3-143-147-252.us-east-2.compute.amazonaws.com
-                 '''
-              }
-            }
-          }
-          stage("carpeta"){
-            steps {
-              dir('jenkins') {
-                  sh ''' 
-                         ls -la
-                         pwd
-                         echo "hola"
-                    '''
-              }
-            }
-          }
           stage('stop/rm') {
 
             when {
