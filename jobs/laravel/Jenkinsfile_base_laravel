@@ -31,7 +31,7 @@ pipeline {
                     sh "\$(aws ecr get-login --no-include-email --region ${AWS_REGION})"
                     sh "docker push ${REPO_NAME}"
                     //limpiar el servidor
-                    sh "docker rmi -f  \$(docker images ${IMAGE__NAME} -q)"
+                    //sh "docker rmi -f  \$(docker images ${IMAGE__NAME} -q)"
                 }
             }
         }
