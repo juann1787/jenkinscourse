@@ -29,7 +29,7 @@ pipeline {
                 script {
                     REPO_NAME = "${AWS_ACCOUNT}.dkr.ecr.${AWS_REGION}.amazonaws.com/${imageName}"
                     //sh "\$(aws ecr get-login --no-include-email --region ${AWS_REGION})"
-                    sh "\$(aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT}.dkr.ecr.${AWS_REGION}.amazonaws.com)"
+                    sh "aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT}.dkr.ecr.${AWS_REGION}.amazonaws.com"
                     sh "docker push ${REPO_NAME}"
                     //limpiar el servidor
                     //sh "docker rmi -f  \$(docker images ${IMAGE__NAME} -q)"
