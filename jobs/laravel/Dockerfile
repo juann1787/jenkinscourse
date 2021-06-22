@@ -1,6 +1,6 @@
 FROM 024789436172.dkr.ecr.us-east-2.amazonaws.com/base/laravel_mysql_composer:latest
-COPY deploy/docker/000-default.conf /etc/apache2/sites-available/000-default.conf
-COPY deploy/docker/.env-pro /var/www/html/.env
+COPY jobs/laravel/deploy/000-default.conf /etc/apache2/sites-available/000-default.conf
+COPY jobs/laravel/deploy/.env-pro /var/www/html/.env
 
 # Suppress the do-not-run-as-root warning from composer
 ENV COMPOSER_ALLOW_SUPERUSER 1
