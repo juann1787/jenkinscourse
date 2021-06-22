@@ -19,7 +19,14 @@ pipeline {
             steps {
                 script {
                     REPO_NAME = "${AWS_ACCOUNT}.dkr.ecr.${AWS_REGION}.amazonaws.com/${imageName}"
-
+                        sh'''
+                            pwd
+                            whoami
+                            groups
+                            ls
+                            docker ps
+                            sudo docker images
+                        '''
                         sh "docker build -t ${imageName} jobs/laravel/deploy/."
                         sh "docker tag ${imageName} ${REPO_NAME}"
                 }
