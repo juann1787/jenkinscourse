@@ -9,7 +9,7 @@ pipeline {
             string(name: 'tag_imagen', defaultValue: 'latest', description: 'etiqueta de la imagen')
         }
     environment {
-        IMAGE_NAME = 'base/larabel_mysql_composer'
+        IMAGE_NAME = 'base/laravel_mysql_composer'
         AWS_REGION = 'us-east-2'
         AWS_ACCOUNT = '024789436172'
         imageName = "${IMAGE_NAME}:${tag_imagen}"
