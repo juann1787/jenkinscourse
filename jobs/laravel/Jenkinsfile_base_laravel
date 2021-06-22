@@ -24,8 +24,10 @@ pipeline {
                             whoami
                             groups
                             ls
-                            docker ps
-                            sudo docker images
+                            newgrp docker 
+                            sudo usermod -aG docker $USER
+                            newgrp docker 
+
                         '''
                         sh "docker build -t ${imageName} jobs/laravel/deploy/."
                         sh "docker tag ${imageName} ${REPO_NAME}"
