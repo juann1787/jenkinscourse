@@ -8,7 +8,7 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 COPY . /var/www/html/
 WORKDIR /var/www/html/
 
-RUN chown -R www-data:wwwdata /var/www/html \
+RUN chown -R www-data:www-data /var/www/html \
     && composer install
     #&& php artisan key:generate
 #CMD service apache2 start
